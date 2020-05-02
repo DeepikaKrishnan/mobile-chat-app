@@ -1,39 +1,55 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title *ngIf='page=="login"'>login</ion-title>
+    <ion-title *ngIf='page=="create"'>Register</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form #form="ngForm">
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <div>
-            <label>Username</label>
-          </div>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="input">
-          <input type='text'>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <div>
-            <label>Password</label>
-          </div>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="input">
-          <input type='password'>
-        </ion-col>
-      </ion-row>
-      <ion-row class="submit">
-        <ion-col><ion-button >Login</ion-button></ion-col>
-      </ion-row>
-    </ion-grid>
-  </form>
+  <div class="logo">
+    <div class="head">D</div>
+    <div class="hlogo"><ion-icon name="heart-outline"></ion-icon></div>
+    <div class="chat">Chat</div>
+  </div>
+  <div class="content">
+      <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div>
+                <label>Username</label>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="input">
+              <input type='text' [(ngModel)]='user.name'>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div>
+                <label>Password</label>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="input">
+              <input type='password'  [(ngModel)]='user.password'>
+            </ion-col>
+          </ion-row>
+          <ion-row class="submit">
+            <ion-col>
+              <ion-button *ngIf='page=="login"' (click)='login()' >Login</ion-button>
+              <ion-button *ngIf='page=="create"' (click)='login()'>Register</ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <div class="pointer">
+              <u *ngIf='page=="login"' (click)="page='create'">Create New</u>
+              <u *ngIf='page=="create"' (click)="page='login'">Sign In </u>
+            </div>
+          </ion-row>
+        </ion-grid>
+  </div>
+
 </ion-content>

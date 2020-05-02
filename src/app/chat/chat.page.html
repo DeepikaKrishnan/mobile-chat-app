@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="title">
+          <ion-back-button></ion-back-button>
+          <div class="name" *ngIf= 'receiverData && receiverData.name'>{{receiverData.name | titlecase}}</div>
+          <div class="logout pointer" (click)='logOut()'><ion-icon name="log-out-outline"></ion-icon></div>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen  #scrollElement [scrollEvents]="true">
+  <div class="msg-wrapper">
+    <div *ngFor = 'let data of msglist' class="sub-wrapper" [class.right]='data.sender == senderId'>
+      <div class="msg" [class.bg]='data.sender == senderId'>
+          <div> {{data.msg}} </div>
+      </div>
+      <div></div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+    <ion-toolbar>
+      <div class="msg-send">
+        <div class="text" (keyup.enter)='sendMsg()'><ion-input #input id="searchText" type='text' [(ngModel)]='msg' ></ion-input></div>
+        <div (click)='sendMsg()'><!--ion-button size='small' name="search" for="searchText" (click)="focusSearch()">Send</ion--> <ion-icon name="search" for="searchText" (click)="focusSearch()" name="send-outline"></ion-icon> </div>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
