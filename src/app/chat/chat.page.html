@@ -14,7 +14,10 @@
   <div class="msg-wrapper">
     <div *ngFor = 'let data of msglist' class="sub-wrapper" [class.right]='data.sender == senderId'>
       <div class="msg" [class.bg]='data.sender == senderId'>
-          <div> {{data.msg}} </div>
+          <div class="msg-wrap">
+            <div class="text"> {{data.msg}} </div>
+            <div class="timestamp"> {{data.date | date:'shortTime'}} </div>
+          </div>
       </div>
       <div></div>
     </div>

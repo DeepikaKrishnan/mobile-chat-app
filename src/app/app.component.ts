@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { FirebaseService } from './services/firebase.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,8 @@ export class AppComponent implements OnInit{
     private localNotifications: LocalNotifications,
     private fire: FirebaseService,
     private router: Router,
-    private active: ActivatedRoute
+    private active: ActivatedRoute,
+    private bgmode: BackgroundMode,
   ) {
     this.initializeApp();
   }
@@ -71,6 +73,7 @@ export class AppComponent implements OnInit{
         const senderData = r.docs.find((x) => x.id == senderId);
         if (senderData) {
           sender = senderData.data();
+          this.bgmode.enable();
           console.log('notify', sender.name);
           this.localNotifications.schedule({
             id: 1,

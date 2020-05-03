@@ -44,17 +44,24 @@ ion-toolbar {
           display: flex;
           margin-bottom: 3px;
           .name {
+            font-weight: bold;
+          font-size: 13px;
             flex-grow: 1;
           }
           .lastMsgTym {
-            font-size: 13px;
+            font-size: 10px;
           }
         }
         .second-line {
           display: flex;
-          font-size: 14px;
+          //font-size: 14px;
           .lastMsg {
+            width: 100%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
             flex-grow: 1;
+            font-size: 11px;
           }
       }
     }

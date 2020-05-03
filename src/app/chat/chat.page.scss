@@ -11,11 +11,28 @@ ion-content{
             width: 100%;
             display: flex;
             .msg {
+                display: flex;
                 border: 1px solid #b2cdfb;
-                width: 50%;
+                max-width: 70%;
                 border-radius: 4px;
-                padding: 7px;
+                padding: 4px 7px;
                 margin-bottom: 11px;
+                .msg-wrap {
+                    width: 100%;
+                    .text {
+                        width: 100%;
+                        float: right;
+                        font-size: 13px;
+                        //margin-right: 5px;
+                    }
+                    .timestamp {
+                        float: right;
+                        font-size: 9px;
+                        align-self: center;
+                        //margin-top: 12px;
+                        color: #5f5d5d;
+                    }
+                }
             }
         }
         .sub-wrapper {
@@ -23,8 +40,25 @@ ion-content{
         }
         .sub-wrapper.right{
             flex-direction: row-reverse;
-            .msg.bg {
-                background: #dcdfff;
+            .msg-wrap {
+                width: 100%;
+                .msg.bg {
+                    display: flex;
+                    background: #dcdfff;
+                    .text {
+                        width: 100%;
+                        float: left;
+                        font-size: 13px;
+                       // margin-right: 5px;
+                    }
+                    .timestamp {
+                        font-size: 9px;
+                        align-self: center;
+                       // margin-top: 12px;
+                        color: #5f5d5d;
+                        float: right;
+                    }
+                }
             }
         }
     }
